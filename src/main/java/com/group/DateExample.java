@@ -23,8 +23,12 @@ public class DateExample {
 	}
 
 	public void setMessage() {
-		this.date = LocalDateTime.now();
+		this.date = getNow();
 		this.message = "現在時刻:" + date;
+	}
+
+	public LocalDateTime getNow() {
+		return LocalDateTime.now();
 	}
 
 }

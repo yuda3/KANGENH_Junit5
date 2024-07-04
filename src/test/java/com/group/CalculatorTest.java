@@ -2,9 +2,11 @@ package com.group;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 class CalculatorTest {
 
@@ -17,6 +19,8 @@ class CalculatorTest {
 
     @Test
     void add() {
+        System.out.println(System.getenv("ENV"));
+        assumeTrue("DEV".equals(System.getenv("ENV")));
         assertEquals(2,calculator.add(1,1));
     }
 
@@ -32,6 +36,7 @@ class CalculatorTest {
     @Nested
     class DivTest {
         @Test
+        @Tag("Exception")
         void div() {
             assertEquals(10, calculator.div(100, 10));
         }
